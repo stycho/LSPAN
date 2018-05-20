@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: $dark-grey;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $m-size;
+  line-height: 1.6;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.is-active {
+  font-weight: bold;
+}
+
+// TRANSITION GROUP ANIMATIONS
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  z-index: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.fade-exit {
+  opacity: 0;
+  z-index: 0;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: all 250ms ease-out;
+  z-index: 0;
+}

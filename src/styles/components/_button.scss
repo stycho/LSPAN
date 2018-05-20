@@ -1,0 +1,39 @@
+.button {
+  background-color: $blue;
+  border: none;
+  border-radius: 2.4rem;
+  box-shadow: 0px 12px 76px -10px rgba(66, 134, 244, 0.85);
+  color: #dddddd;
+  display: inline-block;
+  line-height: 2.5;
+  height: $xl-size;
+  text-decoration: none;
+  padding: 0 $l-size 0 $l-size;
+  font-weight: 300;
+  font-size: $font-size-large;
+  text-align: center;
+  transition: 500ms;
+}
+
+.button:hover {
+  box-shadow: 0px 12px 76px -8px rgba(66, 134, 244, .95);
+}
+
+.button-small {
+  background-color: $blue;
+  border: none;
+  border-radius: 1.6rem;
+  box-shadow: 0px 12px 76px -14px rgba(66, 134, 244, 1);
+  color: #dddddd;
+  height: $l-size;
+  padding: 0 $l-size 0 $l-size;
+  font-weight: 300;
+  font-size: $font-size-large;
+}
+
+.button--secondary {
+  @extend .button;
+  background-color: #888888;
+  box-shadow: none;
+  margin-bottom: $l-size;
+}
