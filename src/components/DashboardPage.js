@@ -1,8 +1,10 @@
 import React from 'react';
 
 const DashboardPage = () => (
-  <div>
-    Dashboard page content
+  <div className="content-container">
+    <div className="exam-container">
+      <h1>Dash coming soon!</h1>
+    </div>
   </div>
 );
 

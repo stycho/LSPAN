@@ -11,6 +11,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Header from '../components/Header';
 import LoginPage from '../components/LoginPage';
 import DashboardPage from '../components/DashboardPage';
+import ExamPage from '../components/ExamPage';
 import NotFoundPage from '../components/NotFoundPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
@@ -26,6 +27,7 @@ const AppRouter = () => (
         <CSSTransition key={location.key} classNames="fade" timeout={250}>
           <Switch location={location}>
             <PublicRoute exact path="/" component={LoginPage} />
+            <PrivateRoute path="/exam" component={ExamPage} />
             <PrivateRoute path="/dashboard" component={DashboardPage} />
             <Route exact component={NotFoundPage} />
           </Switch>
