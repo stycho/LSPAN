@@ -6,6 +6,7 @@ const DashboardPage = () => (
       <h1>Dash coming soon!</h1>
     </div>
   </div>
+  
 );
 
 export default DashboardPage;
