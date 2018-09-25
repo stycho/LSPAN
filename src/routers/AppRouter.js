@@ -6,7 +6,7 @@ import {
   Link,
   NavLink
 } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Header from '../components/Header';
 import LoginPage from '../components/LoginPage';
@@ -16,26 +16,28 @@ import NotFoundPage from '../components/NotFoundPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
-export const history = createHistory();
+export const history = createBrowserHistory();
 
 const AppRouter = () => (
   <Router history={history}>
     <Route render={({ location }) => (
       <div>
 
-      <TransitionGroup>
-        <CSSTransition key={location.key} classNames="fade" timeout={250}>
           <Switch location={location}>
             <PublicRoute exact path="/" component={LoginPage} />
             <PrivateRoute path="/exam" component={ExamPage} />
             <PrivateRoute path="/dashboard" component={DashboardPage} />
             <Route exact component={NotFoundPage} />
           </Switch>
-        </CSSTransition>
-      </TransitionGroup>
-    </div>
+
+      </div>
     )} />
   </Router>
 );
 
 export default AppRouter;
+
+// <TransitionGroup>
+// <CSSTransition key={location.key} classNames="fade" timeout={250}>
+// </CSSTransition>
+// </TransitionGroup>

@@ -31,3 +31,8 @@ export const incrementRound = () => ({
 export const endExam = () => ({
   type: 'END_EXAM'
 });
+
+export const submitTestResult = (testResult) => ({
+  type: 'SUBMIT_TEST_RESULT',
+  testResult
+});

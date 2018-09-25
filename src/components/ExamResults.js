@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { resetExam } from '../actions/exam';
+import { startAddResult } from '../actions/results';
+
 
 const ExamResult = (props) => {
   const handleResetExam = () => {
     props.dispatch(resetExam());
   };
 
+  const submitResultData = () => {
+    props.dispatch(startAddResult(resultData));
+    props.history.push('/');
+  };
+
   const formattedResults = props.exam.responseString.map((answer, index) => (
     <div className="exam-container__result-round-format" style={{textAlign: "left"}}>
       <p>Round: {index + 1}</p>
-      <li key={answer} style={answer == props.exam.generatedString[index] ? {color: "green"} : {color: "red"}}>{answer.toUpperCase()}</li>
+      <li key={answer + 1} style={answer == props.exam.generatedString[index] ? {color: "green"} : {color: "red"}}>{answer.toUpperCase()}</li>
       <li key={index}>{props.exam.generatedString[index]}</li>
       <br />
     </div>
   ));
 
-  const userAnswers = props.exam.responseString.map((answer) => (
-    <li key={answer}>{answer.toUpperCase()}</li>
+  const userAnswers = props.exam.responseString.map((answer, index) => (
+    <li key={answer + index}>{answer.toUpperCase()}</li>
   ));
 
-  const generatedAnswers = props.exam.generatedString.map((answer) => (
-    <li key={answer}>{answer}</li>
+  const generatedAnswers = props.exam.generatedString.map((answer, index) => (
+    <li key={answer + index}>{answer}</li>
   ));
 
   let score = 0;
@@ -32,6 +39,14 @@ const ExamResult = (props) => {
     }
   });
 
+  let resultData = {
+    date: Date.now(),
+    score,
+    rounds: props.exam.settings.rounds,
+    responses: props.exam.responseString,
+    generated: props.exam.generatedString
+  }
+
   return(
     <div className="content-container">
       <h1>Result Page</h1>
@@ -39,6 +54,8 @@ const ExamResult = (props) => {
 
       <h2>{score}/{props.exam.settings.rounds}</h2>
       <button className="button" onClick={handleResetExam}>Reset</button>
+      <br />
+      <button className="button" onClick={submitResultData}>Save Results</button>
     </div>
   );
 };

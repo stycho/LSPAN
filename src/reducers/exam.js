@@ -8,7 +8,7 @@ const initialState = {
   settings: {
     rounds: 6,
     lettersPerRound: 2,
-    msPerRound: 4000,
+    msPerRound: 500, //4000
     allowedChars: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
   }
 }

@@ -37,5 +37,4 @@ const mapStateToProps = ({ exam }) => ({
   exam
 });
 
-// export default connect(mapStateToProps)(LspanExam);
 export default connect(mapStateToProps)(LspanWelcome);
