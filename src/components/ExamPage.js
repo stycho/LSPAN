@@ -7,7 +7,9 @@ import LspanExam from './LspanExam';
 const ExamPage = ({ currentRound }) => (
   <div className="content-container">
     <div className="exam-container">
-      {currentRound > 0 ? <LspanExam /> : <LspanWelcome />}
+      <div className="exam-container__box">
+        {currentRound > 0 ? <LspanExam /> : <LspanWelcome />}
+      </div>
     </div>
   </div>
 );

@@ -1,8 +1,8 @@
 .button {
-  background-color: $blue;
+  background-color: $primary-green;
   border: none;
   border-radius: 2.4rem;
-  box-shadow: 0px 12px 76px -10px rgba(66, 134, 244, 0.85);
+  box-shadow: 0px 12px 76px -10px rgba(5,211,179,0.75);
   color: white;
   display: inline-block;
   line-height: 2.5;
@@ -13,20 +13,21 @@
   font-size: $font-size-large;
   text-align: center;
   transition: 500ms;
+  margin-top: 10px;
 }
 
 .button:hover {
-  box-shadow: 0px 12px 76px -8px rgba(66, 134, 244, .95);
+  box-shadow: 0px 12px 76px -8px rgba(5,211,179,0.95);
 }
 
 .button-small {
-  background-color: lighten($dark-blue, 10%);
-  border: none;
-  border-radius: 1.6rem;
-  box-shadow: 0px 12px 76px -14px rgba(66, 134, 244, 1);
+  background-color: white;
+  box-shadow: 0px 12px 40px 5px rgba(5,211,179,0.10);
+  border: 1px solid $primary-green;
+  border-radius: 2rem;
   display: inline-block;
-  color: white;
-  height: $l-size;
+  color: $primary-green;
+  //height: $l-size;
   line-height: 2.5;
   padding: 0 $l-size 0 $l-size;
   text-decoration: none;
@@ -35,13 +36,17 @@
   text-align: center;
   transition: 500ms;
   &:hover {
-    background-color: lighten($dark-blue, 20%);
+    background-color: lighten($primary-green, 0.90);
+    //background-color: rgba(5,211,179,0.20);
+    color: white;
+    box-shadow: 0px 12px 50px -14px rgba(5,211,179,0.50);
   }
 }
 
 .button-small--active {
   @extend .button-small;
-  background-color: $blue;
+  background-color: $primary-green;
+  color: white;
 }
 
 .button--secondary {

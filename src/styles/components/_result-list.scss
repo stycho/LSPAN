@@ -1,0 +1,38 @@
+.result-list__container {
+    display: flex;
+    flex-direction: row;
+}
+
+.result-list__date {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-start;
+}
+
+.result-list__date--highlight {
+    color: $primary-green;
+}
+
+.result-list__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: $light-grey;
+    margin-bottom: $m-size;
+    padding: $l-size;
+    border-radius: 10px;
+
+}
+
+.result-list__score {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    background: $primary-green;
+    color: white;
+    height: 75px;
+    width: 75px;
+    border-radius: 75px;
+}

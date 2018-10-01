@@ -4,9 +4,9 @@
   justify-content: center;
   align-content: center;
   text-align: center;
-  background: #e0e0e0;
-  border-radius: 1.6rem;
-  margin: $l-size auto;
+  background: white;
+  border-radius: 0.5rem;
+  margin: $m-size auto;
   padding: $l-size;
   width: 500px;
   
@@ -33,6 +33,11 @@
   }
 }
 
+.exam-container__box {
+  background: $light-grey;
+  padding: $l-size;
+  border-radius: 10px;
+}
 
 span:nth-child(even) {
   margin-right: 6px;

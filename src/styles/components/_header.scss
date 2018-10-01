@@ -1,12 +1,13 @@
 .header {
-  background: $dark-blue;
+  background: $light-grey;
 }
 
 .header__title {
-  color: $off-white;
+  color: $primary-green;
   text-decoration: none;
-  h1 {
-    margin: 0;
+  h2 {
+
+    font-weight: 100;
   }
 }
 

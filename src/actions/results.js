@@ -6,9 +6,10 @@ export const setResults = (results) => ({
   results
 });
 
-export const startSetResults = () => {
+export const startSetResults = (uid) => {
+  console.log(uid);
   return (dispatch) => {
-    const ref = database.ref('results');
+    const ref = database.ref(`users/${uid}/results`);
     const results = [];
     // Retrieve from database and dispatch SET_RESULTS if successful
     ref.once('value')
@@ -38,12 +39,13 @@ export const startAddResult = (resultData = {}) => {
       score = 0,
       rounds = 0,
       responses = [],
-      generated = []
+      generated = [],
+      uid = ''
     } = resultData;
     console.log(resultData);
-    const result = { date, score, rounds, responses, generated };
-
-    database.ref('results').push(result)
+    const result = { date, score, rounds, responses, generated, uid };
+    const dbRef = 
+    database.ref(`users/${uid}/results`).push(result)
       .then((ref) => {
         dispatch(addResult({
           id: ref.key,

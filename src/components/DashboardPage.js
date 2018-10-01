@@ -1,30 +1,21 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import database from '../firebase/firebase';
+import { connect } from 'react-redux';
 import { startSetResults } from '../actions/results';
+import DashboardResults from './DashboardResults';
 
 class DashboardPage extends Component {
 
   componentDidMount() {
-    const ref = database.ref('results');
-    this.props.dispatch(startSetResults());
+    this.props.dispatch(startSetResults(this.props.uid));
   };
   render() {
-    console.log(this.props);
-    let dashboardResultList = this.props.userResults && this.props.userResults.map(result => {
-      return (
-        <div key={result.id}>
-          <p>{result.date}</p>
-          <p>{result.score}/{result.rounds}</p>
-        </div>
-      )
-    });
-    console.log(dashboardResultList);
+
+    const userResults = this.props.userResults.sort((a, b) => b.date - a.date);
 
     return(
       <div className="content-container">
         <div className="exam-container">
-        {dashboardResultList}
+          {userResults.length > 0 ? <DashboardResults userResults={userResults} className="result-list__container"/> : <p>No results to display.</p>}
         </div>
       </div>
     )
@@ -32,7 +23,8 @@ class DashboardPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  userResults: state.dashboardResults || []
+  userResults: state.dashboardResults || [],
+  uid: state.auth.uid
 });
 
 export default connect(mapStateToProps)(DashboardPage);

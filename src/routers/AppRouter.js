@@ -22,14 +22,16 @@ const AppRouter = () => (
   <Router history={history}>
     <Route render={({ location }) => (
       <div>
-
+      <TransitionGroup>
+      <CSSTransition key={location.key} classNames="fade" timeout={0}>
           <Switch location={location}>
             <PublicRoute exact path="/" component={LoginPage} />
             <PrivateRoute path="/exam" component={ExamPage} />
             <PrivateRoute path="/dashboard" component={DashboardPage} />
             <Route exact component={NotFoundPage} />
           </Switch>
-
+          </CSSTransition>
+          </TransitionGroup>
       </div>
     )} />
   </Router>

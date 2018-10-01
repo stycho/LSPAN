@@ -11,7 +11,7 @@ const ExamResult = (props) => {
 
   const submitResultData = () => {
     props.dispatch(startAddResult(resultData));
-    props.history.push('/');
+    handleResetExam();
   };
 
   const formattedResults = props.exam.responseString.map((answer, index) => (
@@ -44,7 +44,8 @@ const ExamResult = (props) => {
     score,
     rounds: props.exam.settings.rounds,
     responses: props.exam.responseString,
-    generated: props.exam.generatedString
+    generated: props.exam.generatedString,
+    uid: props.uid
   }
 
   return(
@@ -54,14 +55,15 @@ const ExamResult = (props) => {
 
       <h2>{score}/{props.exam.settings.rounds}</h2>
       <button className="button" onClick={handleResetExam}>Reset</button>
-      <br />
+      
       <button className="button" onClick={submitResultData}>Save Results</button>
     </div>
   );
 };
 
-const mapStateToProps = ({ exam }) => ({
-    exam
+const mapStateToProps = ({ exam, auth }) => ({
+  exam,
+  uid: auth.uid
 });
 
 export default connect(mapStateToProps)(ExamResult);

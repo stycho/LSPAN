@@ -1,13 +1,13 @@
 .text-input {
-  border: 1px solid #cacccd;
+  border: 1px solid $primary-green;
   height: 50px;
-  padding: $s-size;
+  padding: $m-size;
   font-size: $font-size-large;
   font-weight: 300;
 }
 
 .text-display {
-  border: 1px solid #cacccd;
+  border: 1px solid $primary-green;
   height: 50px;
   padding: $s-size;
   font-size: $font-size-large;

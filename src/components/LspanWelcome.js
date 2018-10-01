@@ -26,8 +26,8 @@ export const LspanWelcome = (props) => {
 
   return (
     <div className="">
-      <h1>Welcome to the LSPAN test</h1>
-      <p>Press start to begin exam</p>
+      
+      <h3>Press start to begin exam</h3>
       <button className="button" onClick={handleStartExam}>Start</button>
     </div>
   );
